@@ -1,0 +1,17 @@
+<h1>Log in</h1>
+
+<%= form_tag sessions_path, method: 'post' do%>
+<table>
+	<tr>
+		<td><%= label_tag :email %></td>
+		<td><%= text_field_tag :email %></td>
+	</tr>
+	<tr>
+		<td><%= label_tag :password %></td>
+		<td><%= password_field_tag :password %></td>
+	</tr>
+</table>
+	<%= submit_tag "Log in" %>
+
+<% end %>
+
