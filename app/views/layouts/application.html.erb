@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WhatMessage</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="alert alert-info" style="overflow: hidden">
+		<div class="navbar-icons">
+			<%= link_to "Home", root_path  %>
+		</div>
+
+		<div class="user-info">
+			<% if current_user %>
+				Welcome, <%= current_user.name %>
+			<% else %>
+				<%= link_to "Register", new_user_path %>
+			<% end %>
+		</div>
+	</div>
+
+	<% if flash.any? %>
+	<% flash.each do |key, value| %>
+	<div class="alert <%= flash_class_name(key) %>"> <%= value %></div>
+	<% end %>
+	<% end %>
+
+	<div class="container">
+		<%= yield %>
+	</div>
+
+</body>
+</html>
