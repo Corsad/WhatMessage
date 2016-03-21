@@ -6,7 +6,7 @@ Submitted by: Dang Kim Khanh
 
 Time spent: 8 hours
 
-URL: **Insert your Heroku URL here**
+URL: https://whatmessage.herokuapp.com
 
 ## User Stories
 
