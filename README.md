@@ -4,7 +4,7 @@ WhatMessage is a Ruby on Rails blog application that allows users to send messag
 
 Submitted by: Dang Kim Khanh
 
-Time spent: 8 hours
+Time spent: 10 hours
 
 URL: https://whatmessage.herokuapp.com
 
@@ -44,7 +44,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](relative-path-to-your-gif-file-on-github-or-absolute-path-to-file-on-imgur-or-youtube)
+![Video Walkthrough](image/gif/walkthrough%203.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -54,7 +54,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2016] [Dang Kim Khanh]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
