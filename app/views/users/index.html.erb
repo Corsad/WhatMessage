@@ -61,7 +61,7 @@
  		<ul class="ul-friend">
  			<% current_user.friends.each do |f| %>
  			<li class="<%= cycle('even', 'odd-friend', name:"No")%> col-color">
- 				<%= f.second_user.name %> : <%= f.second_user.email %><%= link_to "Destroy",  user_friend_path(current_user.id,f.id), :method => :delete %>
+ 				<%= f.second_user.name %> : <%= f.second_user.email %> <%= link_to "Delete",  user_friend_path(current_user.id,f.id), :method => :delete %>
  			</li>
  			<% end %>
  		</ul>
