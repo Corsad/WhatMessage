@@ -1,0 +1,24 @@
+<% if !@users.blank? %>
+<%= form_for [@user, Message.new] do |f| %>
+<table>
+	<tr>
+		<td><%= f.label "To: " %></td>
+		<td><%= f.collection_select(:recipient_id, @users, :id, :name) %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :title %></td>
+		<td><%= f.text_field :title %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :boby %>	</td>
+		<td><%= f.text_field :body %></td>
+	</tr>
+</table>
+<%= f.submit %>
+<% end %>
+<% else %>
+You have no one to send message to.
+<br>
+<%= link_to "Add New Friend", new_user_friend_path(current_user.id), class: "btn btn-secondary"%>
+<%= link_to "Back",  user_home_path, class: "btn btn-secondary"%>
+<% end %>

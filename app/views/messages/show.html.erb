@@ -1,0 +1,15 @@
+<div class="card">
+	<div class="card-header">
+		<h4 class="card-title title-custom"><%= @message.title %></h4>
+	</div>
+	<div class="card-block">
+		<p class="card-text">From: <b><%= @message.recipient.name %></b></p>
+		<p class="card-text"><%= @message.body %></p>
+		<p class="card-text"><%= @message.created_at %></p>
+	</div>
+
+	<div class="card-footer text-muted">
+		You won't be able to read this message again once you return.
+		<%= link_to "Back", user_home_path %>
+	</div>
+</div>

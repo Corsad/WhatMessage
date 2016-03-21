@@ -1,0 +1,14 @@
+<% if !@users.blank? %>
+<%= form_for [@user, Friend.new] do |f| %>
+<table>
+	<tr>
+		<td><%= f.label "Add as friend: " %></td>
+		<td><%= select_tag "second_user_id", options_from_collection_for_select(@users, "id", "name") %></td>
+	</tr>
+</table>
+<%= f.submit "Add Friend"%>
+<% end %>
+<% else %>
+<h1>You are everyone's friend</h1>
+
+<% end %>

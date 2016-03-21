@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :users
+
+  resources :users do
+    resources :messages
+    resources :friends
+  end
   resources :sessions, only: [:new, :create]
 
+  get 'user_home' => 'users#index'
   delete 'logout' => 'sessions#destroy'
   root 'home#index'
 

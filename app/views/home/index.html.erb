@@ -1,23 +1,8 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-
-<h2>Users</h2>
-<table class="table">
-	<thead class="thead thead-default">
-		<tr>
-			<th>Name</th>
-			<th>Email</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<% User.all.each do |user| %>
-		<tr>
-			<td><%= user.name %></td>
-			<td><%= user.email %></td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
-
-<%= link_to "Sign up", new_user_path  %>
+<div class="jumbotron">
+	<h1 class="display-3">Welcome to WhatMessage</h1>
+	<p class="lead">Want to send a message that can only be read by your friend? This is the place.</p>
+	<p class="lead">
+		<%= link_to "Join Us", new_user_path, class: "btn btn-primary" %>
+		<%= link_to "Log in",  new_session_path, class: "btn btn-primary" %>
+	</p>
+</div>

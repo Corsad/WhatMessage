@@ -1,0 +1,74 @@
+ <div class="row">
+ 	<div class="col-sm-2 user-selection" style="margin-right: 10px">
+ 		<%= link_to "Compose", new_user_message_path(current_user.id), class: "btn btn-secondary user-btn", style: "margin-top: 10px"%>
+ 		<div class="btn btn-primary user-btn" id="inbox-btn">Inbox</div>
+ 		<div class="btn btn-secondary user-btn" id="send-mess-btn" >Sent Message</div>
+ 		<%= link_to "Add Friend", new_user_friend_path(current_user.id), class: "btn btn-secondary user-btn", style: "margin-top: 20px" %>
+ 		<div class="btn btn-secondary user-btn" id="friend-list-btn" style="margin-bottom: 10px">Friend List</div>
+
+ 	</div>
+
+ 	<div class="col-sm-8 mail-list" id="sent-div">
+ 		<% if  !@received_messages.blank?  %>
+ 		<div class="row">
+ 			<% @received_messages.each do |m| %>
+ 			<div class="<%= cycle('even', 'odd', name:"No") %>">
+ 				<div class="col-sm-5 row-color">
+ 					<% if !m.read? %>
+ 					<b><%= link_to m.title, user_message_path(current_user.id, m.id)%> </b>
+ 					<% else %>
+ 					<%= m.title %>
+ 					<% end %>
+ 				</div>
+ 				<div class="col-sm-3 row-color"><i>From: <%= m.sender.name %></i></div>
+ 				<div class="col-sm-4 row-color"><b>At: <%= m.created_at %></b></div>
+ 			</div>
+ 			<% end %>
+ 			<% reset_cycle("No") %>
+ 			<%= paginate @received_messages %>
+ 		</div>
+ 		<% else %>
+ 		<h1>Inbox empty</h1>
+ 		<% end %>
+ 	</div>
+
+ 	<div class="col-sm-8 mail-list hidden" id="received-div">
+ 		<% if  !@sent_messages.blank?  %>
+ 		<div class="row">
+ 			<% @sent_messages.each do |m| %>
+ 			<div class="<%= cycle('even', 'odd', name:"No") %>">
+ 				<div class="col-sm-5 row-color">
+ 					<%= m.title %>
+ 				</div>
+ 				<div class="col-sm-3 row-color"><i>To: <%= m.recipient.name %></i></div>
+ 				<% if m.read? %>
+ 				<div class="col-sm-4 row-color"><b>Read At: <%= m.read_at %></b></div>
+ 				<% else %>
+ 				<div class="col-sm-4 row-color"><b>Read At: Unread</b></div>
+ 				<% end %>
+ 			</div>
+ 			<% end %>
+ 			<% reset_cycle("No") %>
+ 			<%= paginate @sent_messages %>
+ 		</div>
+ 		<% else %>
+ 		<h1>You haven't sent any email</h1>
+ 		<% end %>
+ 	</div>
+
+ 	<div class="col-sm-8 mail-list hidden" id="friend-div">
+ 		<% if !current_user.friends.blank? %>
+ 		<ul class="ul-friend">
+ 			<% current_user.friends.each do |f| %>
+ 			<li class="<%= cycle('even', 'odd', name:"No")%> col-color">
+ 				<%= f.second_user.name %> : <%= f.second_user.email %><%= link_to "Destroy",  user_friend_path(current_user.id,f.id), :method => :delete %>
+ 			</li>
+ 			<% end %>
+ 		</ul>
+ 		<% reset_cycle("No") %>
+ 		<% else %>
+ 		<h1>You also have no friend</h1>
+ 		<% end %>
+ 	</div>
+ </div>
+
